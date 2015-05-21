@@ -1,6 +1,6 @@
 {
 	"author": "David Goehrig",
-	"name": "pgproc",
+	"name": "wot-pgproc",
 	"license" : "MIT",
 	"description": "Maps Postgresql stored procedures to Javascript fucntions",
 	"version": "0.0.0",
