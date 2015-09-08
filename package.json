@@ -5,7 +5,7 @@
   "description": "Maps Postgresql stored procedures to Javascript fucntions",
   "version": "0.0.3",
   "repository": {
-    "url": "http://github.com/WoTio/pgproc.js"
+    "url": "http://github.com/wotio/pgproc.js"
   },
   "main": "./lib/pgproc.js",
   "bin": {},
