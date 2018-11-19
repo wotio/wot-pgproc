@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+# (C) 2018, InterDigital Communications, Inc. All rights reserved.
+# Distributed under commercial license.
+#
+# Usage:
+#   help [<topics>]
+#
+# Description:
+#   Display help for specified topics.  If one is not provided
+#   the main topic will be displayed.
+#
+# Simple Example:
+#   $ help mytopic
+#
+# More Complex Example:
+#   $ export DOCS_PATH="/tmp/docs"
+#   $ help mytopic
+
+# Help list as a space delimited list of topics (OPTIONAL)
+HELP_TOPICS=$1
+
+# Path to docs (OPTIONAL)
+DOCS_PATH=${DOCS_PATH:-docs/makefiles}
+
+# Main usage
+function usage {
+	# list supported help topics
+	for topic_file in $(ls -1 "${DOCS_PATH}"); do
+		TOPIC=$(echo ${topic_file} | sed "s/.txt$//")
+		if [ ! "${TOPIC}" == "main" ]; then
+			HELP="${HELP}make help-${TOPIC}\n"
+		fi
+	done
+	echo
+	cat ${DOCS_PATH}/main.txt | sed "s/{{{HELP_TOPICS}}}/${HELP}/"
+	echo
+}
+
+# Process topics provided.
+for topic in $HELP_TOPICS; do
+	HELP_FILE=${DOCS_PATH}/$(echo ${topic} | sed "s/help-\?//").txt
+	if [ -f "${HELP_FILE}" ]; then
+		HELP_STR=${HELP_STR}"\n"$(cat ${HELP_FILE})"\n"
+	fi
+done
+
+# Output any help requested otherwise the main usage
+if [ -n "${HELP_STR}" ]; then
+	echo -e "${HELP_STR}"
+else
+	usage
+fi
+

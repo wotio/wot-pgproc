@@ -1,20 +1,20 @@
 {
-  "author": "David Goehrig",
   "name": "wot-pgproc",
-  "license": "MIT",
+  "version": "1.0.0",
   "description": "Maps Postgresql stored procedures to Javascript fucntions",
-  "version": "0.1.0",
-  "repository": {
-    "url": "http://github.com/wotio/pgproc.js"
-  },
   "main": "./lib/pgproc.js",
-  "bin": {},
-  "dependencies": {
-    "pg": ">=2.8.3"
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/wotio/wot-pgproc"
   },
-  "devDependencies": {},
-  "optionalDependencies": {},
+  "dependencies": {
+    "pg": "==2.11.2"
+  },
+  "scripts": {
+    "test": "echo 'No tests defined for this package' && exit 0"
+  },
   "engines": {
-    "node": ">=0.10"
+    "node": ">=8.12.0",
+    "npm": ">=5.6.0"
   }
 }

@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# (C) 2018, InterDigital Communications, Inc. All rights reserved.
+# Distributed under commercial license.
+#
+# Usage:
+#   clean_js <SOURCE_DIR_LIST>
+#
+# Description:
+#   This script cleans up javascript files from specified SOURCE_DIR_LIST
+#
+# Simple Example:
+#   $ clean_js lib
+
+# Source directory list (REQUIRED)
+SOURCE_DIR_LIST=$@
+
+if [ -z "${SOURCE_DIR_LIST}" ]; then
+	# Nothing to do, just exit
+	exit 0
+fi
+
+for directory in ${SOURCE_DIR_LIST}; do
+	# Clean up javascript files
+	echo "===> Cleaning ${directory} javascript files"
+	rm -f ${directory}/*.js
+	rm -f ${directory}/*.js.map
+done

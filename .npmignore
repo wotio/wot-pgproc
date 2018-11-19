@@ -1,0 +1,10 @@
+.npmignore
+.gitignore
+run*
+*.swp
+Makefile
+/includes/
+/scripts/
+/docs/makefiles/
+/_build/
+package-lock.json

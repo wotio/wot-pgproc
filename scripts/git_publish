@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# (C) 2018, InterDigital Communications, Inc. All rights reserved.
+# Distributed under commercial license.
+#
+# Usage:
+#   git_publish
+#
+# Description:
+#   Publish the git source and tags to the remote.
+#   Optionally if TAG_ONLY is true, only the tags will be publish
+#
+# Simple Example:
+#   $ git_publish
+#
+# More Complex Example:
+#  $ export TAG_ONLY=true
+#  $ git_publish
+
+# publish only git tags (OPTIONAL)
+# If set to true, will only publish tags.   Default is false to publish source and tags.
+TAG_ONLY=${TAG_ONLY:-false}
+
+# Git tag options to pass to git push (OPTIONAL)
+GIT_TAG_OPTIONS=${GIT_TAG_OPTIONS:-}
+
+if [ ! "${TAG_ONLY}" == "true" ]; then
+	echo "===> git publish"
+	git push
+	if [ "$?" -ne 0 ]; then
+		>&2 echo "ERROR: git push failed"
+		exit 1
+	fi
+fi
+
+echo "===> git publish tags"
+git push --tags ${GIT_TAG_OPTIONS}
+if [ "$?" -ne 0 ]; then
+	>&2 echo "ERROR: git push tags failed"
+	exit 2
+fi

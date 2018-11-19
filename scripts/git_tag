@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# (C) 2018, InterDigital Communications, Inc. All rights reserved.
+# Distributed under commercial license.
+#
+# Usage:
+#   git_tag <TAG> [<TAG_COMMENT>]
+#
+# Description:
+#   Tag a git repository with the supplied tag and optional tag comment
+#
+# Simple Example:
+#   $ git_tag 1.0.0
+
+# git tag (REQUIRED)
+TAG=$1
+
+if [ -z "$TAG" ]; then
+	# Nothing to do
+	return
+fi
+
+# git tag comment (OPTIONAL)
+# If not supplied, the comment will be set to the tag provided.  The tag comment can not be set if a tag is provided.
+TAG_COMMENT=${2:-${TAG}}
+
+echo "===> Adding tag ${TAG} to git repository with comment '${TAG_COMMENT}'"
+git tag -f -a "${TAG}" -m "${TAG_COMMENT}"
+if [ "$?" -ne 0 ]; then
+	>&2 echo "ERROR: git tag failed"
+	exit 1
+fi

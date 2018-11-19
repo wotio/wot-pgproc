@@ -1,0 +1,34 @@
+==== PACKAGE NODEJS HELP ====
+
+usage: make <target>
+
+== package
+
+This target will build the nodejs package by installing dependencies and compiling code.
+
+
+== publish-package
+
+This target will publish the nodejs package to a npm repository as defined by the user's npm "registry" configuration.
+
+
+== tag-src
+
+This target will tag the HEAD git repository commit ID with the package version.
+
+Note, this target will have indeterminate results if the git repository is dirty.
+
+
+== publish-src
+
+This target will publish the souce and all new tags to the remote git repository.
+
+
+== test
+
+This target will perform any nodejs package tests.
+
+
+== clean-package-nodejs
+
+This target will clean all of the nodejs package artifacts.
