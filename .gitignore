@@ -5,4 +5,3 @@ run*
 *.swp
 /_build/
 .npmrc
-package-lock.json
