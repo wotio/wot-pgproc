@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+if [ "$1" == "version" ]; then
+	echo "0.0.0"
+elif [ "$1 $2" == "image inspect" ]; then
+	echo "image:HASH"
+else
+	echo "docker $@"
+fi

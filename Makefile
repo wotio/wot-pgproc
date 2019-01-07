@@ -2,6 +2,7 @@
 # Distributed under commercial license.
 
 all: help
+.PHONY: all
 
 # Catch all to display usage file
 # Flag HELP_SEEN is required to output help only once if multiple targets are supplied to make
@@ -10,12 +11,13 @@ all: help
 	$(eval HELP_SEEN = yes)
 
 ## Include all functional plugin makefiles
-include includes/*.mk
+include includes/make/*.mk
 
 ## Clean targets
-clean:
+clean:: before-clean
+clean::
 	@echo "===> Clean build..."
 	@rm -fr $(BUILD_DIR)
 	@echo "Done."
-
-.PHONY: clean
+clean:: after-clean
+.PHONY: before-clean clean after-clean

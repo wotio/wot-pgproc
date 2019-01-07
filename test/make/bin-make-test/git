@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+if [ "$1 $2" == "rev-parse --is-inside-work-tree" ]; then
+	echo "true"
+elif [ "$1 $2" == "status --porcelain" ]; then
+	echo -n
+elif [ "$1" == "rev-parse" ]; then
+	echo "123"
+elif [ "$1 $2" == "config remote.origin.url" ]; then
+	echo "git-repo"
+else
+	echo "git $@"
+fi

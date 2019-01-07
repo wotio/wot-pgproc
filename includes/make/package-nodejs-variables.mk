@@ -15,7 +15,7 @@ PACKAGE_DIRLIST :=
 
 # options to pass to npm install
 PACKAGE_INSTALL_OPTS ?=
-PACKAGE_INSTALL_ARGS = $(PACKAGE_INSTALL_OPTS) --no-package-lock
+PACKAGE_INSTALL_ARGS = $(PACKAGE_INSTALL_OPTS)
 
 # options to pass to npm publish
 PACKAGE_PUBLISH_OPTS ?=
