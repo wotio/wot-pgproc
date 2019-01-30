@@ -8,3 +8,5 @@ Makefile
 /docs/makefiles/
 /_build/
 package-lock.json
+/manifests/
+/test/make/

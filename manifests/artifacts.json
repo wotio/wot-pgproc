@@ -1,0 +1,31 @@
+{
+  "name": "wot-pgproc repo packages",
+  "type": "manifest",
+  "url": "#",
+  "description": "the logical packages provided by the 'wot-pgproc' repository",
+  "sources": [
+    {
+      "url": "file:manifests/artifacts.json"
+    },
+    {
+      "url": "https://github.com/wotio/wot-pgproc",
+      "tags": [
+        "git",
+        "git-repo"
+      ]
+    }
+  ],
+  "packages": [
+    {
+      "type": "npm",
+      "name": "wot-pgproc",
+      "displayName": "Chordant pgproc library",
+      "description": "Maps Postgresql stored procedures to Javascript fucntions",
+      "sources": [
+        {
+          "url": "file:package.json"
+        }
+      ]
+    }
+  ]
+}
