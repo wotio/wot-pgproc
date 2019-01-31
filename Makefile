@@ -1,4 +1,4 @@
-# (C) 2018, InterDigital Communications, Inc. All rights reserved.
+# (C) 2019, InterDigital Communications, Inc. All rights reserved.
 # Distributed under commercial license.
 
 all: help
